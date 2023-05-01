@@ -17,9 +17,12 @@ class Conta:
             self.__saldo += valor
             self.extrato()
 
+    def __pode_sacar(self, valor):
+        valor_disponivel = self.__saldo + self.__limite
+        return valor > valor_disponivel
     def saca(self, valor):
-        if valor > self.__saldo:
-            print("Digite um valor menor do que o saldo")
+        if self.__pode_sacar(valor):
+            print("Digite um valor menor do que o saldo e limite")
         else:
             self.__saldo -= valor
             self.extrato()
@@ -30,7 +33,6 @@ class Conta:
         else:
             self.saca(valor)
             acc.deposita(valor)
-
 
     @property
     def saldo(self):
