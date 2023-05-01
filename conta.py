@@ -20,6 +20,7 @@ class Conta:
     def __pode_sacar(self, valor):
         valor_disponivel = self.__saldo + self.__limite
         return valor > valor_disponivel
+
     def saca(self, valor):
         if self.__pode_sacar(valor):
             print("Digite um valor menor do que o saldo e limite")
@@ -49,3 +50,7 @@ class Conta:
     @limite.setter
     def limite(self, valor):
         self.__limite = valor
+
+    @staticmethod
+    def codigo():
+        return {'BB':'001', 'Caixa': '002', 'Bradesco': '003'}
