@@ -23,3 +23,27 @@ class Conta:
         else:
             self.__saldo -= valor
             self.extrato()
+
+    def transfere(self, valor, acc):
+        if valor > self.__saldo:
+            print("Digite um valor menor do que o saldo")
+        else:
+            self.saca(valor)
+            acc.deposita(valor)
+
+
+    @property
+    def saldo(self):
+        return self.__saldo
+
+    @property
+    def titular(self):
+        return self.__titular
+
+    @property
+    def limite(self):
+        return self.__limite
+
+    @limite.setter
+    def limite(self, valor):
+        self.__limite = valor
